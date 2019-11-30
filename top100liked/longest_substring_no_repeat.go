@@ -16,7 +16,6 @@ func max(a int, b int) int {
 	Always update  a character's latest position
 */
 func lengthOfLongestSubstring(s string) int {
-
 	currentLongest , start, end := 0, 0 , 0
 	dict := make([]int, 256)
 	for i := range dict {
