@@ -1,4 +1,3 @@
-package main
 
 //Trie represent a node and its children: <character, Trie>
 type Trie struct {

@@ -1,4 +1,3 @@
-package main
 
 type WordDictionary struct {
 	Children [27]*WordDictionary
@@ -59,6 +58,6 @@ func (root *WordDictionary) SearchHelper(word []rune, ind int) bool {
 }
 
 func (root *WordDictionary) Search(word string) bool {
-	//rune slice is faster than passing string 
+	//rune slice is faster than passing string
 	return root.SearchHelper([]rune(word), 0)
 }
