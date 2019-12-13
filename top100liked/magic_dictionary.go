@@ -43,17 +43,15 @@ func (root *MagicDictionary) SearchHelper(word string, miss int, wl int, ind int
 		return root.End && miss == 1
 	}
 	//current access character of the word
-	j := int(word[ind] - 'a')
+	ch := int(word[ind] - 'a')
 	for i, nc := range root.Children {
 		if nc != nil {
-			if i == j {
-				if nc.SearchHelper(word, miss, wl, ind+1) {
-					return true
-				}
-			} else {
-				if nc.SearchHelper(word, miss+1, wl, ind+1) {
-					return true
-				}
+			nm := miss
+			if i != ch {
+				nm += 1
+			}
+			if nc.SearchHelper(word, nm, wl, ind+1) {
+				return true
 			}
 		}
 	}
@@ -65,9 +63,3 @@ func (root *MagicDictionary) Search(word string) bool {
 	return root.SearchHelper(word, 0, len(word), 0)
 }
 
-/**
- * Your MagicDictionary object will be instantiated and called as such:
- * obj := Constructor();
- * obj.BuildDict(dict);
- * param_2 := obj.Search(word);
- */
