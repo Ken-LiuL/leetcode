@@ -1,4 +1,4 @@
-package recursion
+package main
 
 type TreeNode struct {
 	Val   int
@@ -13,25 +13,35 @@ func max(a, b int) int {
 	return b
 }
 
-func longestPathHelper(root *TreeNode, l int) int {
-	cur := l
-	if root.Left != nil {
-		if root.Val == root.Left.Val {
-			cur = max(cur, longestPathHelper(root.Left, l+1))
-		} else {
-			cur = max(cur, longestPathHelper(root.Left, l))
-		}
+var longest = 0
+
+func longestPathHelper(root *TreeNode) int {
+	if root == nil {
+		return 0
 	}
-	if root.Right != nil {
-		if root.Val == root.Right.Val {
-			cur = max(cur, longestPathHelper(root.Right, l+1))
-		} else {
-			cur = max(cur, longestPathHelper(root.Right, l))
-		}
+	left, right := longestPathHelper(root.Left), longestPathHelper(root.Right)
+
+	if root.Left != nil && root.Left.Val == root.Val {
+		left += 1
+	} else {
+		left = 0
 	}
-	return cur
+	if root.Right != nil && root.Right.Val == root.Val {
+		right += 1
+	} else {
+		right = 0
+	}
+
+	longest = max(longest, left+right)
+	return max(left, right)
 }
 
 func longestUnivaluePath(root *TreeNode) int {
-	return longestPathHelper(root, 0)
+	if root == nil {
+		return 0
+	}
+	longestPathHelper(root)
+	res := longest
+	longest = 0
+	return res
 }

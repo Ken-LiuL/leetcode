@@ -13,5 +13,4 @@ func tribonacci(n int) int {
 	}
 	memorization[n] = tribonacci(n-3) + tribonacci(n-2) + tribonacci(n-1)
 	return memorization[n]
-	
 }
