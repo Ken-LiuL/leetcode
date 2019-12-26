@@ -11,5 +11,6 @@ func helper(root *TreeNode, arr  *[]int) {
 }
 
 func inorderTraversal(root *TreeNode) []int {
-    
+	arr := make([]int, 0, 20)
+	return helper(root, &arr)
 }
