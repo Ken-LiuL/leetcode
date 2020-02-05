@@ -29,6 +29,3 @@ func makeLargestSpecial(s string) string {
 	sort.Sort(sort.Reverse(sort.StringSlice(res)))
 	return strings.Join(res, "")
 }
-func main() {
-	makeLargestSpecial("11011000")
-}

@@ -1,4 +1,4 @@
-package main
+package list
 
 //ListNode the node of linked list
 type ListNode struct {

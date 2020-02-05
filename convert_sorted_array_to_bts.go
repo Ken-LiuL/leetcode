@@ -16,7 +16,7 @@ func sortHelper(nums []int, start, end int) *TreeNode{
     }
 	pivot := (start+end)/ 2
 	n := &TreeNode{Val: nums[pivot]} 
-	n.Left =   sortHelper(nums, start, pivot-1)
+	n.Left =  sortHelper(nums, start, pivot-1)
 	n.Right = sortHelper(nums, pivot+1, end) 
 	return n
 }

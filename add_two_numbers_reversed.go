@@ -1,4 +1,4 @@
-package main
+package list
 
 // it is the same as add two number, except, in this case the digit is normal order
 // like for 1234 , the linked list is 1--> 2 --> 3-->4
