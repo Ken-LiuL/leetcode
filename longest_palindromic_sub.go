@@ -16,18 +16,19 @@ func longestPalindrome(s string) string {
 	arr := insertSpecial(s)
 	//middle out 
 	max, maxInd := 0, 0
+	#1#2#3#2#1#4#
 	for ind, _ := range arr {
 		start, end, count := ind-1, ind+1, 0
 		for start >=0 && end < len(arr) && arr[start] == arr[end] {
 			count++
-			 end++
+			end++
 			start--
 		}
 		if count > max {
 		   max = count
 		   //get the start of this choise and divide by two, since
 		   //we add special character
-		   maxInd = (ind - maxInd) / 2
+		   maxInd = (ind - max) / 2
 		}
 	}
    return s[maxInd: maxInd+max]
