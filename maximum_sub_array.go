@@ -17,3 +17,4 @@ func maxSubArray(nums []int) int {
 	  }
 	  return maxGlobal
 }
+
