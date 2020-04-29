@@ -15,6 +15,7 @@ func NewUnionFind(size int) *UnionFind {
 
 func (uf *UnionFind) root(p int) int {
 	for p != uf.arr[p] {
+		uf.arr[p] = uf.arr[uf.arr[p]]
 		p = uf.arr[p]
 	}
 	return p
